@@ -9,17 +9,24 @@ const ListMovies = () => {
     const [data, setData] = useState([])
     const [error, seterror] = useState('')
     const [searchTerm, setTerm] = useState('')
+    const [constructorHasRun, setConstructorHasRun] = useState(false);
 
-    const handleGetData = async () => {
+   
+
+
+    const constructor = async () => {
+        if (constructorHasRun) return;
+        
         const response = await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=d3e128f&s=joker`);
         if(response.ok){
             const res = await response.json()
             setData(res.Search)
         }
-    }
-
-
-    handleGetData();
+        
+        setConstructorHasRun(true);
+      };
+    
+      constructor();
 
     
 
