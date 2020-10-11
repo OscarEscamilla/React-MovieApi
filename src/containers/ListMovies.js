@@ -22,7 +22,7 @@ const ListMovies = () => {
             const res = await response.json()
             setData(res.Search)
         }
-        
+
         setConstructorHasRun(true);
       };
     
@@ -70,7 +70,7 @@ const ListMovies = () => {
             <div className="row">
                 {
                     data.map((movie, i) => (
-                    <Card props={movie} key={i} />
+                    <Card movie={movie} key={i} />
                     ))
                 }
             </div>
