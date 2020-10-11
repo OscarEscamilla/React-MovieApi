@@ -24,8 +24,8 @@ const ListMovies = () => {
     
 
     const handlerSearchOnChange = async (e) => {
-        console.log(e.target.value);
         setTerm(e.target.value);
+        seterror(''); 
     }
 
     const handlerSubmit = async (e) => {
@@ -36,8 +36,7 @@ const ListMovies = () => {
             const response = await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=d3e128f&s=${searchTerm}`);
             if(response.ok){
                 const res = await response.json()
-                console.log(res);
-                setData(res.Search)
+                res.Search ? setData(res.Search): seterror("Results not found");
             }
         }
 
