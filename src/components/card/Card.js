@@ -21,7 +21,7 @@ const Card = ({ movie }) => {
 }
 
 
-Card.PropTypes = {
+Card.propTypes = {
     movie: PropTypes.shape(
         {
             Title: PropTypes.string,
