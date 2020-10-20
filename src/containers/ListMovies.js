@@ -15,7 +15,7 @@ const ListMovies = () => {
 
 
     const constructor = async () => {
-        if (constructorHasRun) return;
+        if (constructorHasRun) return; // ejecuta solo la primera vez al pasar true y salir de la funcion en el return
         
         const response = await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=d3e128f&s=joker`);
         if(response.ok){
@@ -26,7 +26,7 @@ const ListMovies = () => {
         setConstructorHasRun(true);
       };
     
-      constructor();
+    constructor();
 
     
 
@@ -64,16 +64,10 @@ const ListMovies = () => {
                                 autoFocus>
                             </input>
                         </form>
-                        <p className="text-white">{ error ? error : ''}</p>
+                        <p className="text-white mt-3">{ error ? error : ''}</p>
                     </div>
                 </div>
-            <div className="row">
-                {
-                    data.map((movie, i) => (
-                    <Card movie={movie} key={i} />
-                    ))
-                }
-            </div>
+            <div className="row"> { data.map((movie, i) => ( <Card movie={movie} key={i} /> )) }</div>
         </>
 
     )
