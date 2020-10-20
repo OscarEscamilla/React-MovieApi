@@ -35,6 +35,11 @@ const ListMovies = () => {
         seterror(''); 
     }
 
+    const handlerSearchOn = async (e) => {
+        setTerm(e.target.value);
+        seterror(''); 
+    }
+
     const handlerSubmit = async (e) => {
         e.preventDefault()
         if(!searchTerm){
