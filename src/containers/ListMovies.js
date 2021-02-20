@@ -35,10 +35,7 @@ const ListMovies = () => {
         seterror(''); 
     }
 
-    const handlerSearchOn = async (e) => {
-        setTerm(e.target.value);
-        seterror(''); 
-    }
+  
 
     const handlerSubmit = async (e) => {
         e.preventDefault()
@@ -58,21 +55,25 @@ const ListMovies = () => {
     return (
         <>
             <div clasName="row">
-                    <div className="col-md-4 offset-md-4 p-4">
-                        <form className="form-inline" onSubmit= {e => handlerSubmit(e)}>
-                            <input
-                                id="input-search"
-                                type="text" 
-                                placeholder="Search" 
-                                className="form-control"
-                                onChange={handlerSearchOnChange}
-                                autoFocus>
-                            </input>
-                        </form>
-                        <p className="text-white mt-3">{ error ? error : ''}</p>
-                    </div>
+                <div className="col-md-4 offset-md-4 p-4">
+                    <form className="form-inline" onSubmit= {e => handlerSubmit(e)}>
+                        <input
+                            id="input-search"
+                            type="text" 
+                            placeholder="Search" 
+                            className="form-control"
+                            onChange={handlerSearchOnChange}
+                            autoFocus>
+                        </input>
+                    </form>
+                    <p className="text-white mt-3">{ error ? error : ''}</p>
                 </div>
-            <div className="row"> { data.map((movie, i) => ( <Card movie={movie} key={i} /> )) }</div>
+            </div>
+            <div className="row"> { 
+
+                data.map((movie, i) =>  <Card movie={movie} key={i} /> ) 
+            
+            }</div>
         </>
 
     )
